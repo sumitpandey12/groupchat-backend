@@ -1,12 +1,19 @@
 const express = require("express");
 const sequelize = require("./utils/db");
+const cors = require("cors");
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 3001;
 
 require("dotenv").config();
 app.use(express.json());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 
 //Routes
 const UserRoute = require("./routes/user");
